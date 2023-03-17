@@ -1,10 +1,10 @@
-import * as React from "react";
+import HomeIcon from "@mui/icons-material/Home";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import HomeIcon from "@mui/icons-material/Home";
+import * as React from "react";
 
 export default function Menu() {
   return (
@@ -15,7 +15,7 @@ export default function Menu() {
             <HomeIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" component="div">
-                        Overview
+            Overview
           </Typography>
         </Toolbar>
       </AppBar>
