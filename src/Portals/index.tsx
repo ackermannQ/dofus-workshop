@@ -30,13 +30,8 @@ export default function Portals() {
     
   React.useEffect(() => {
     fetchPortals(Servers[Servers.hellmina]).then((portals) => {
-      console.log(portals);
-            
       setPortals(portals);
     });
-    fetchPortals(Servers[Servers.orukam]);
-
-    console.log(portals);
         
   }, []);
 
