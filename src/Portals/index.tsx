@@ -4,7 +4,8 @@ import React from "react";
 import { API_PORTALS_BASE } from "../config/apiConfig";
 import { Dimensions } from "./Dimensions";
 import DisplayPortals from "./DisplayPortals";
-import { Servers } from "./Servers";
+import { getServersList, Servers } from "./Servers";
+import { ServerSelection } from "./ServerSelection";
 
 export interface IPortal {
     server: Servers;
@@ -27,16 +28,18 @@ interface IPosition {
 
 export default function Portals() {
   const [portals, setPortals] = React.useState<IPortal[] | null>(null);
+  const serversList = getServersList();
+  const [currentServer, setCurrentServer] = React.useState<string>(serversList[0]);
     
   React.useEffect(() => {
-    fetchPortals(Servers[Servers.hellmina]).then((portals) => {
+    fetchPortals(currentServer).then((portals) => {
       setPortals(portals);
     });
-        
-  }, []);
+  }, [currentServer]);
 
   return <div>
     <h1 style={{color:"#EBEEF1"}}>Portails</h1>
+    <ServerSelection servers={serversList} setCurrentServerCallback={setCurrentServer}/>
     <DisplayPortals portals={portals} />
   </div>;
 
