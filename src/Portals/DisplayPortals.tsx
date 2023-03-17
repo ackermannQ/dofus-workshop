@@ -36,8 +36,16 @@ export default function DisplayPortals(props: {portals: IPortal[] | null}) {
           },
           margin: 1,
         }}>
-          <img width={50} style={{cursor: "pointer"}} src={`${portal.dimension}.png`} alt={capitalizeFirstLetter(portal.dimension)} onClick={() => navigator.clipboard.writeText("salut")}/>
-          {portal?.position?.x ? <Typography sx={{ fontSize: 18 }}>[{portal?.position?.x}, {portal?.position?.y}]</Typography> : "Indisponible"}
+          <img 
+            width={50} 
+            style={{cursor: "pointer"}} 
+            src={`${portal.dimension}.png`} 
+            alt={capitalizeFirstLetter(portal.dimension)} 
+            onClick={() => navigator.clipboard.writeText("salut")}
+          />
+          {portal?.position?.x ? <Typography sx={{ fontSize: 18 }}>
+            [{portal?.position?.x}, {portal?.position?.y}]
+          </Typography> : "Indisponible"}
           <Typography sx={{ fontSize: 14 }} color="#A0A2A4" gutterBottom>
             {portal.remainingUses} utilisations restantes
           </Typography>
@@ -63,8 +71,12 @@ function ServerSelection(props: {servers: string[]}) {
       }}
       id="controllable-states-demo"
       options={props.servers}
-      sx={{ width: 200, backgroundImage:`url(/${currentServer}.jpg)`, backgroundRepeat:"no-repeat", backgroundPositionY: "30%"}}
-      renderInput={(params) => <TextField sx={{backgroundColor: "rgba(0, 0, 0, 0.5)"}} {...params} />}
+      sx={{ width: 200,
+        backgroundImage:`url(/${currentServer}.jpg)`,
+        backgroundRepeat:"no-repeat",
+        backgroundPositionY: "30%"}}
+      renderInput={(params) => 
+        <TextField sx={{backgroundColor: "rgba(0, 0, 0, 0.5)"}} {...params} />}
     />
   );
 }

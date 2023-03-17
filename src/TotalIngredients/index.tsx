@@ -6,5 +6,7 @@ interface TotalIngredientsProps {
 }
 
 export default function TotalIngredients(props: TotalIngredientsProps) {
-  return <div>{props.ingredients.map(ingredient => <p key={`${ingredient.name} + totalIngredients`}>{ingredient.name} - {ingredient.quantity}</p>)}</div>;
+  return <div>{props.ingredients.map(ingredient => 
+    <p key={`${ingredient.name} + totalIngredients`}>{ingredient.name} - {ingredient.quantity}</p>
+  )}</div>;
 }

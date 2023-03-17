@@ -87,7 +87,10 @@ export default function SearchRecipes() {
 
       for(let j = 0; j < totalIngredients.length; j++) {
         if(totalIngredients[j] === recipe[i]) {
-          allIngredients.push({name:  totalIngredients[j].name, quantity: totalIngredients[j].quantity += recipe[i].quantity});
+          allIngredients.push({
+            name: totalIngredients[j].name,
+            quantity: totalIngredients[j].quantity += recipe[i].quantity
+          });
           break;
         } else {
           allIngredients.push(recipe[i]);
