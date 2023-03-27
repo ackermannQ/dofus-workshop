@@ -44,6 +44,7 @@ export default function Almanax() {
   }
 
   function formatDate() {
-    return new Date().toISOString().split("T")[0];
+    return new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" })
+      .split(" ")[0].split("/").reverse().join("-");
   }
 }

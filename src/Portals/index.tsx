@@ -1,3 +1,4 @@
+import { Box, Chip, Divider, Grid } from "@mui/material";
 import axios from "axios";
 import React from "react";
 
@@ -37,11 +38,42 @@ export default function Portals() {
     });
   }, [currentServer]);
 
-  return <div>
-    <h1 style={{color:"#EBEEF1"}}>Portails</h1>
-    <ServerSelection servers={serversList} setCurrentServerCallback={setCurrentServer}/>
+  return <Grid>
+    <Grid
+      container
+      spacing={0}
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Grid item xs={3}>
+        <ServerSelection servers={serversList} setCurrentServerCallback={setCurrentServer}/>
+      </Grid>
+    </Grid>
     <DisplayPortals portals={portals} />
-  </div>;
+    <Grid
+      container
+      spacing={0}
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Grid item xs={3}>
+        <Divider sx={{
+          borderTop: "1px solid",
+          borderImageSource: `linear-gradient(to right, rgba(253, 185, 80, 0),
+        rgba(253, 185, 80, 0) 14%, rgba(253, 185, 80, 0.28),
+        rgba(253, 185, 80, 0.93) 48%, #fdb950 50%, rgba(253, 185, 80, 0.28),
+        rgba(253, 185, 80, 0) 86%, rgba(253, 185, 80, 0))`,
+          borderImageSlice: 1,
+          margin: "10px",
+          width: 250,
+        }}>
+          <Chip sx={{fontSize: 20, color: "white"}} label="Position des portails" />
+        </Divider>
+      </Grid>
+    </Grid> 
+  </Grid>;
 
   async function fetchPortals(serverName: string): Promise<IPortal[] | null> {
     try {

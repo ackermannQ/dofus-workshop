@@ -19,9 +19,16 @@ export function ServerSelection(props: {
       sx={{ width: 200,
         backgroundImage:`url(/${currentServer}.jpg)`,
         backgroundRepeat:"no-repeat",
-        backgroundPositionY: "30%"}}
+        backgroundPositionY: "30%",
+        cursor: "pointer"
+      }}
       renderInput={(params) => 
-        <TextField sx={{backgroundColor: "rgba(0, 0, 0, 0.5)"}} {...params} />}
+        <TextField sx={{backgroundColor: "rgba(0, 0, 0, 0.3)", input: {
+          color: "rgba(255, 255, 255, 0.7)",
+          fontSize: 20,
+          textAlign: "center"
+        }
+        }} {...params} />}
       disableClearable
     />
   );
