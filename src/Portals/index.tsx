@@ -45,6 +45,7 @@ export default function Portals() {
       direction="column"
       alignItems="center"
       justifyContent="center"
+      style={{marginTop: "4vh"}}
     >
       <Grid item xs={3}>
         <ServerSelection servers={serversList} setCurrentServerCallback={setCurrentServer}/>

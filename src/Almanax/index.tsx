@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import axios from "axios";
 import React from "react";
 
@@ -19,12 +19,20 @@ export default function Almanax() {
     });
   }, []);
 
-  return <Box sx={{marginTop: 5}}>
-    <img width="50" alt={almanax?.item_name} src={almanax?.item_url} />
-    <Typography variant="h6" color="inherit" component="div">
-      {almanax?.item_quantity} {almanax?.item_name}
-    </Typography>
-  </Box>;
+  return <Grid
+    container
+    spacing={0}
+    direction="column"
+    alignItems="center"
+    justifyContent="center"
+  >
+    <Box sx={{marginTop: 5, display: "flex"}}>
+      <img width="40" alt={almanax?.item_name} src={almanax?.item_url} />
+      <Typography variant="h6" color="inherit" component="div">
+        {almanax?.item_quantity} {almanax?.item_name}
+      </Typography>
+    </Box>
+  </Grid>;
 
   async function fetchAlmanax(): Promise<IAlmanax | null> {
     try {

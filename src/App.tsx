@@ -15,14 +15,12 @@ function App() {
     <div className="App">
       <Menu />
       <Grid container spacing={2}>
-        <Grid item xs={4}>
+        <Grid item xs={4} style={{marginLeft: "2vw"}}>
           <Almanax />
-        </Grid>
-        <Grid item xs={4}>
-          <SearchRecipes />
-        </Grid>
-        <Grid item xs={4}>
           <Portals />
+        </Grid>
+        <Grid item xs={6}>
+          <SearchRecipes />
         </Grid>
       </Grid>
     </div>
